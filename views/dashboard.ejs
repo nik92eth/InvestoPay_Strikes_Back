@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,100&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="/assets/logo.svg" alt="msb-srt-logo" />
+    <link rel="apple-touch-Icons" href="/assets/logo.svg" alt="msb-a-bg-logo" />
+
+    <title>InvestoPay - Let's get started</title>
+    <meta
+      name="description"
+      content="Making investing in comodities easy, simple and part of daily transactions"
+    />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="container-fluid gx-0">
+        <div class="navbar custom-navbar py-4">
+          <div class="container gx-4">
+            <div class="navbar-brand d-flex align-items-center">
+              <img
+                src="/assets/logo.svg"
+                alt="InvestoPay Logo"
+                class="brand-img"
+              />
+              <span class="ms-3">investoPay</span>
+            </div>
+
+            <button
+              class="navbar-toggler d-flex align-items-center"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"
+                ><i class="bi bi-list"></i
+              ></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+              <ul class="navbar-nav my-5">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/passbook/<%= user._id %>">Passbook</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link dropdown-toggle"
+                    href="#"
+                    id="navbarDropdown"
+                    role="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Another action</a>
+                    </li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link disabled"
+                    href="#"
+                    tabindex="-1"
+                    aria-disabled="true"
+                    >Disabled</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="main-body py-5">
+          <div class="container gx-4">
+            <div class="btns text-center">
+              <b>Hello, <%= user.name %></b>
+              <div class="toggle-btn d-inline-flex mx-auto" id="toggleBtn1">
+                <a class="custom-btn active" onclick="Page1()">Payments</a>
+                <a class="custom-btn" onclick="Page2()">Investments</a>
+              </div>
+            </div>
+
+            <div class="pages mt-4">
+              <div class="sheet-1" id="sheet1">
+                <!-- Add Payments Section Here -->
+                
+              </div>
+              <div class="sheet-2 d-none" id="sheet2">
+                <!-- Add Investments Section Here -->
+                  <div class="container">
+                    <div class="card main-card" style="width: 20rem;">
+                      <h3 style="margin-bottom: 2rem;"><span><i class="bi bi-currency-dollar"></i></span>Your Investments</h3>
+                        <span style="width: 20%;"><i class="bi bi-circle-fill" style="color: rgb(90, 219, 51); font-size: 10px; " ></i></span> <span class="stocks" style="margin-left: 0.5rem;">Sensex</span> <span class="stock-nos" style="width: 20%;color: rgb(90, 219, 51);margin-left: 8rem; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+<%= user.investment %></span><br>
+                        <span><i class="bi bi-circle-fill" style="color: rgb(219, 51, 51);  font-size: 10px;" ></i></span> <span style="margin-left: 0.5rem;" class="stocks" >S&P 500</span>  <span class="stock-nos" style="color: rgb(219, 51, 51);margin-left: 8rem;">&nbsp;&nbsp;0</span><br>
+                        <span><i class="bi bi-circle-fill" style="color: rgb(90, 219, 51);  font-size: 10px;" ></i></span> <span style="margin-left: 0.5rem;" class="stocks" >TATA Motors</span> <span class="stock-nos" style="color: rgb(90, 219, 51);margin-left: 6rem;">0</span>
+                    </div>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="pay-btn">
+            <button class="btn btn-dark" onclick="window.location.href='/pay/<%= user._id %>'">
+              <i class="bi bi-plus-lg me-1"></i> New Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      .toggle-btn {
+        background-color: #e5e5e5;
+        border-radius: 25rem;
+        padding: 0.4rem;
+      }
+
+      .custom-btn {
+        border-radius: 25rem;
+        color: #808080;
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+      }
+
+      .custom-btn:hover {
+        color: #000000;
+      }
+
+      .custom-btn.active {
+        background-color: #ffffff;
+        color: #000000;
+      }
+
+      .pay-btn {
+        position: fixed;
+        bottom: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .pay-btn button {
+        padding: 1rem 1.5rem;
+        border-radius: 25rem;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
+        background-color: #000000;
+      }
+      .main-card{
+        position: relative;
+        margin-top: 4rem;
+        border-width: 5px;
+        border-radius: 5px;
+        display: block;
+        margin-left: -1rem;
+        padding: 1rem;
+        }
+      .investments{
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+                
+      }
+      .stocks,
+      .stock-nos{
+        font-weight: 700;
+      }
+    </style>
+
+    <script>
+      console.log(document.querySelectorAll(".pages div"));
+
+      function Page1() {
+        document.querySelectorAll(".custom-btn")[1].classList.remove("active");
+        document.querySelectorAll(".custom-btn")[0].classList.add("active");
+        document.querySelectorAll(".pages div")[0].classList.remove("d-none");
+        document.querySelectorAll(".pages div")[1].classList.add("d-none");
+      }
+
+      function Page2() {
+        document.querySelectorAll(".custom-btn")[1].classList.add("active");
+        document.querySelectorAll(".custom-btn")[0].classList.remove("active");
+        document.querySelectorAll(".pages div")[0].classList.add("d-none");
+        document.querySelectorAll(".pages div")[1].classList.remove("d-none");
+      }
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
