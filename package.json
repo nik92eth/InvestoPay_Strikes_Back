@@ -1,5 +1,5 @@
 {
-  "name": "razorpay_fdx",
+  "name": "zeta_hack-2021",
   "version": "1.0.0",
   "description": "InvestoPay",
   "main": "server.js",
@@ -10,7 +10,7 @@
   "engines": {
    "node": "12.11.1"
   },
-  "author": "Champions",
+  "author": "team_trees",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",

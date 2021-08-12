@@ -117,7 +117,7 @@
         <div class="main-body py-5">
           <div class="container gx-4">
             <div class="btns text-center">
-              <b>Hello, <%= user.name %></b>
+              <b>Hello, <%= user.name %></b> <br><br>
               <div class="toggle-btn d-inline-flex mx-auto" id="toggleBtn1">
                 <a class="custom-btn active" onclick="Page1()">Payments</a>
                 <a class="custom-btn" onclick="Page2()">Investments</a>
@@ -125,33 +125,107 @@
             </div>
 
             <div class="pages mt-4">
-              <div class="sheet-1" id="sheet1">
-                <!-- Add Payments Section Here -->
-                
-              </div>
-              <div class="sheet-2 d-none" id="sheet2">
-                <!-- Add Investments Section Here -->
-                  <div class="container">
-                    <div class="card main-card" style="width: 20rem;">
-                      <h3 style="margin-bottom: 2rem;"><span><i class="bi bi-currency-dollar"></i></span>Your Investments</h3>
-                        <span style="width: 20%;"><i class="bi bi-circle-fill" style="color: rgb(90, 219, 51); font-size: 10px; " ></i></span> <span class="stocks" style="margin-left: 0.5rem;">Sensex</span> <span class="stock-nos" style="width: 20%;color: rgb(90, 219, 51);margin-left: 8rem; ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+<%= user.investment %></span><br>
-                        <span><i class="bi bi-circle-fill" style="color: rgb(219, 51, 51);  font-size: 10px;" ></i></span> <span style="margin-left: 0.5rem;" class="stocks" >S&P 500</span>  <span class="stock-nos" style="color: rgb(219, 51, 51);margin-left: 8rem;">&nbsp;&nbsp;0</span><br>
-                        <span><i class="bi bi-circle-fill" style="color: rgb(90, 219, 51);  font-size: 10px;" ></i></span> <span style="margin-left: 0.5rem;" class="stocks" >TATA Motors</span> <span class="stock-nos" style="color: rgb(90, 219, 51);margin-left: 6rem;">0</span>
-                    </div>
-              </div>
-              </div>
+              <div class="sheet sheet-1" id="sheet1">
+                  <h4 class="payments-head">Track Daily Market</h4>
+                  <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div id="tradingview_97083"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+  <script type="text/javascript">
+  new TradingView.widget(
+  {
+  "width": 300,
+  "height": 350,
+  "symbol": "FRED:SP500",
+  "interval": "W",
+  "timezone": "Etc/UTC",
+  "theme": "light",
+  "style": "2",
+  "locale": "en",
+  "toolbar_bg": "#f1f3f6",
+  "enable_publishing": false,
+  "hide_top_toolbar": true,
+  "hide_legend": true,
+  "save_image": false,
+  "container_id": "tradingview_97083"
+}
+  );
+  </script>
+</div>
+
+<!-- TradingView Widget END -->
+              </div>                           
+                      <div class="sheet sheet-2 d-none" id="sheet2">
+                        <!-- Add Investments Section Here -->
+
+                                <h3 style="margin-bottom: 2rem;"><span><i class="bi bi-currency-dollar"></i></span>Your Investments</h3>
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/indices/" rel="noopener" target="_blank"><span class="blue-text">Indices</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+  {
+  "colorTheme": "light",
+  "dateRange": "12M",
+  "showChart": true,
+  "locale": "en",
+  "largeChartUrl": "",
+  "isTransparent": false,
+  "showSymbolLogo": true,
+  "showFloatingTooltip": false,
+  "width": "300",
+  "height": "500",
+  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+  "gridLineColor": "rgba(42, 46, 57, 0)",
+  "scaleFontColor": "rgba(120, 123, 134, 1)",
+  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+  "tabs": [
+    {
+      "title": "Indices",
+      "symbols": [
+        {
+          "s": "FOREXCOM:SPXUSD",
+          "d": "S&P 500"
+        },
+        {
+          "s": "FRED:NASDAQ100",
+          "d": "Nasdaq"
+        },
+        {
+          "s": "BSE:SENSEX",
+          "d": "sensex"
+        }
+      ],
+      "originalTitle": "Indices"
+    }
+  ]
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+                      </div>
+
             </div>
           </div>
+        </div>
           <div class="pay-btn">
             <button class="btn btn-dark" onclick="window.location.href='/pay/<%= user._id %>'">
               <i class="bi bi-plus-lg me-1"></i> New Payment
             </button>
           </div>
-        </div>
       </div>
     </div>
+    
 
     <style>
+      .tradingview-widget-container__widget{
+        z-index: -1;
+      }
       .toggle-btn {
         background-color: #e5e5e5;
         border-radius: 25rem;
@@ -179,6 +253,7 @@
         bottom: 2rem;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 1;
       }
 
       .pay-btn button {
@@ -208,20 +283,20 @@
     </style>
 
     <script>
-      console.log(document.querySelectorAll(".pages div"));
+      console.log(document.querySelectorAll(".pages .sheet"));
 
       function Page1() {
         document.querySelectorAll(".custom-btn")[1].classList.remove("active");
         document.querySelectorAll(".custom-btn")[0].classList.add("active");
-        document.querySelectorAll(".pages div")[0].classList.remove("d-none");
-        document.querySelectorAll(".pages div")[1].classList.add("d-none");
+        document.querySelectorAll(".pages .sheet")[0].classList.remove("d-none");
+        document.querySelectorAll(".pages .sheet")[1].classList.add("d-none");
       }
 
       function Page2() {
         document.querySelectorAll(".custom-btn")[1].classList.add("active");
         document.querySelectorAll(".custom-btn")[0].classList.remove("active");
-        document.querySelectorAll(".pages div")[0].classList.add("d-none");
-        document.querySelectorAll(".pages div")[1].classList.remove("d-none");
+        document.querySelectorAll(".pages .sheet")[0].classList.add("d-none");
+        document.querySelectorAll(".pages .sheet")[1].classList.remove("d-none");
       }
     </script>
 

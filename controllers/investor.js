@@ -14,7 +14,7 @@ exports.home_form = function(req, res){
 		if(user) {
 			res.redirect(`/dashboard/${user._id}`);
 		}else{
-		user = new User({mobile: user_mobile, UPI: user_mobile+"@razorpay"});
+		user = new User({mobile: user_mobile, UPI: user_mobile+"@zeta.com"});
 		user.save(function(err){
 			if(err){
 				return res.status(500).send({
