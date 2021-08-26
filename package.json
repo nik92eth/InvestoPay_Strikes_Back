@@ -8,7 +8,7 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm run build"
   },
   "engines": {
-   "node": "12.11.1"
+    "node": "12.11.1"
   },
   "author": "team_trees",
   "license": "ISC",
