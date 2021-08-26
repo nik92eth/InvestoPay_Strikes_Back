@@ -37,6 +37,22 @@
 </head>
 
 <body>
+  <div class="container">
+    <div class="outer-main">
+      <div class="desktop-text d-none d-md-block">
+        <div class="d-flex align-items-center">
+          <img src="/assets/logo.svg" alt="InvestoPay Logo" class="brand-img" />
+          <span class="ms-3 text-light mt-2"><h5>investoPay</h5></span>
+        </div>
+        <p class="main-text text-light my-4">investoPay was designed to make investing easy and part of daily life <br><br>
+          
+          Invest without putting in the work and reap the benefits of the market. <br> <br>
+          investoPay took the inspiration from smallcase and can be integrated with other UPI APPS or use the stand-alone product. <br> <br>
+          To experience the Product , FOLLOW <br><br> Right Click > Inspect Elements > iPhone XII</p>
+      </div>
+      <div class="phone-mockup d-none d-md-block">
+        <img style="margin-left: 54rem;" src="/assets/iphone12.png" alt="" />
+      </div>
     <div class="main">
         
         <div class="container-fluid gx-0">
@@ -60,20 +76,6 @@
                           </li>
                           <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
-                          </li>
-                          <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><hr class="dropdown-divider"></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                           </li>
                         </ul>
                     </div>
@@ -103,6 +105,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     <style>
       .toggle-btn {
@@ -149,6 +153,71 @@
       display: inline;
     }
   </style>
+
+<style>
+  @media only screen and (min-width: 768px) {
+    .main-text{
+      font-size: 1.2rem;
+      width: 100%;
+    }
+    .outer-main {
+      width: 100%;
+      position: relative;
+      left: 5rem;
+      top: 5rem;
+      width: 40rem;
+    }
+
+    .phone-mockup {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+
+    .phone-mockup img {
+      width: 22rem;
+    }
+
+    .main {
+      position: absolute;
+      overflow-y: scroll;
+      background-color: #000000;
+      width: 20rem;
+      height: 40.5rem;
+      left: 1.1rem;
+      top: 3.1rem;
+      border-radius: 0px 0px 50px 43px;
+      margin-left: 54rem;
+    }
+
+    .main-body {
+      min-height: 34.5rem;
+    }
+
+    /* Scroll 2 */
+    .main::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .main::-webkit-scrollbar-track {
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 10px;
+    }
+    .main::-webkit-scrollbar-thumb {
+      background-color: #cacaca;
+      border-radius: 10px;
+    }
+
+    .main-form {
+      height: 28rem;
+    }
+
+    .desktop-text {
+      position: absolute;
+      right: 0rem;
+    }
+  }
+</style>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
