@@ -41,203 +41,178 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="outer-main">
-        <div class="desktop-text d-none d-md-block">
-          <div class="d-flex align-items-center">
-            <img
-              src="/assets/logo.svg"
-              alt="InvestoPay Logo"
-              class="brand-img"
-            />
-            <span class="ms-3 text-light mt-2"><h5>investoPay</h5></span>
-          </div>
-          <p class="main-text text-light my-4">
-            investoPay was designed to make investing easy and part of daily
-            life <br /><br />
-
-            Invest without putting in the work and reap the benefits of the
-            market. <br />
-            <br />
-            investoPay took the inspiration from smallcase and can be integrated
-            with other UPI APPS or use the stand-alone product.
-            <br />
-            <br />
-            To experience the Product , FOLLOW <br /><br />
-            Right Click > Inspect Elements > iPhone XII
-          </p>
-        </div>
-        <div class="phone-mockup d-none d-md-block">
-          <img style="margin-left: 54rem" src="/assets/iphone12.png" alt="" />
-        </div>
-        <div class="main">
-          <div class="container-fluid gx-0">
-            <div class="navbar custom-navbar py-4">
-              <div class="container gx-4">
-                <div class="navbar-brand d-flex align-items-center">
-                  <img
-                    src="/assets/logo.svg"
-                    alt="InvestoPay Logo"
-                    class="brand-img"
-                  />
-                  <span class="ms-3">investoPay</span>
-                </div>
-
-                <button
-                  class="navbar-toggler d-flex align-items-center"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#mainNavbar"
-                  aria-controls="mainNavbar"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="navbar-toggler-icon"
-                    ><i class="bi bi-list"></i
-                  ></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                  <ul class="navbar-nav my-5">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#"
-                        >Home</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#">Link</a>
-                    </li>
-                  </ul>
-                </div>
+    <div class="container gx-0 gx-lg-4">
+      <div class="row gx-0 gx-lg-4">
+        <!-- This div is hidden in mobile and visible in desktop-->
+        <div class="col-12 col-lg-6 d-none d-lg-block">
+          <div class="desktop-text my-5 px-5">
+            <div class="brand mb-4">
+              <div class="d-flex align-items-center">
+                <img
+                  src="/assets/logo.svg"
+                  alt="InvestoPay Logo"
+                  class="brand-img"
+                />
+                <span class="ms-3 text-light mt-2"><h5>investoPay</h5></span>
               </div>
             </div>
+            <div class="main-text text-light">
+              <p>Hi 🖖</p>
+              <p>
+                This is a simulation of an investment app we designed for ZETA
+                HACKS 3.0 called investoPay
+              </p>
+              <p>
+                The goal of investoPay is to make investemnt easy and part of
+                daily life. We help users invest without putting in the work and
+                reap the benefits of the market.
+              </p>
+              <p>
+                We believe Zeta Fusion solved many of the problems that
+                investoPay would have faced as a fintech. We used Fusion to
+                provide each user with a wallet to transact and invest from.
+              </p>
 
-            <div class="main-body py-5">
-              <div class="container gx-4">
-                <form method="post" class="custom-form">
-                  <div class="main-form">
-                    <div
-                      class="d-flex flex-column justify-content-between h-100"
-                    >
-                      <div class="top-area">
-                        <div class="heading">
-                          <h1>Let’s start by transfering some funds</h1>
-                        </div>
-                        <p class="mt-3 form-text">
-                          Enter your Bank details here and transfer funds to
-                          your virtual account
-                        </p>
+              <p class="form-text">
+                **Though we have provided a mobile simulator, we recommend using
+                this simulation on a mobile device for best experience.
+              </p>
+            </div>
+          </div>
+        </div>
 
-                        <div class="form-floating my-4">
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="accountNumber"
-                            id="accountNumber"
-                            placeholder="Account Number"
-                            value="8364923469386493284"
-                          />
-                          <label for="accountNumber">Account Number</label>
+        <!-- This div is visible on both mobile and desktop and takes full screen in desktop -->
+        <div class="col-12 col-lg-6">
+          <!-- This is parent div for phone mockup and main app to position them properly -->
+          <div class="outer">
+            <!-- This is the phone mockup only visible in desktop -->
+            <div class="phone-mockup d-none d-md-block">
+              <img class="w-100" src="/assets/iphone12.png" alt="" />
+            </div>
+
+            <!-- this is the main app  -->
+            <div class="main-app">
+              <!-- App Navbar -->
+              <div class="navbar custom-navbar py-4">
+                <div class="container gx-3">
+                  <div class="navbar-brand d-flex align-items-center">
+                    <img
+                      src="/assets/logo.svg"
+                      alt="InvestoPay Logo"
+                      class="brand-img"
+                    />
+                    <span class="ms-3">investoPay</span>
+                  </div>
+
+                  <button
+                    class="navbar-toggler d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"
+                      ><i class="bi bi-list"></i
+                    ></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav my-4">
+                      <!-- To add nav link copy the below li tag and change the nav-link a tag -->
+                      <!-- <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/"
+                          >Home</a
+                        >
+                      </li>
+                      <hr />
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          aria-current="page"
+                          href="/dashboard"
+                          >Add money to wallet</a
+                        >
+                      </li>
+                      <hr />
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          aria-current="page"
+                          href=""
+                          >Passbook</a
+                        >
+                      </li> -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Main App Body -->
+              <div class="main-body py-5">
+                <div class="container gx-3">
+                  <form method="post" class="custom-form">
+                    <div class="main-form">
+                      <div
+                        class="d-flex flex-column justify-content-between h-100"
+                      >
+                        <div class="top-area">
+                          <div class="heading">
+                            <h1>Let’s start by transfering some funds</h1>
+                          </div>
+                          <p class="mt-3 form-text">
+                            Enter your Bank details here and transfer funds to
+                            your virtual account
+                          </p>
+  
+                          <div class="form-floating my-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="accountNumber"
+                              id="accountNumber"
+                              placeholder="Account Number"
+                              value="8364923469386493284"
+                            />
+                            <label for="accountNumber">Account Number</label>
+                          </div>
+                          <div class="form-floating my-4">
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="bankName"
+                              id="bankName"
+                              placeholder="Bank Name"
+                              value="ICICI"
+                            />
+                            <label for="bankName">Bank Name</label>
+                          </div>
+                          <div class="form-floating my-4">
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="amount"
+                              id="amount"
+                              placeholder="amount"
+                              required
+                            />
+                            <label for="amount">Amount</label>
+                          </div>
                         </div>
-                        <div class="form-floating my-4">
-                          <input
-                            type="text"
-                            class="form-control"
-                            name="bankName"
-                            id="bankName"
-                            placeholder="Bank Name"
-                            value="ICICI"
-                          />
-                          <label for="bankName">Bank Name</label>
+                        <div class="bottom-area">
+                          <button class="btn btn-dark w-100">Proceed</button>
                         </div>
-                        <div class="form-floating my-4">
-                          <input
-                            type="number"
-                            class="form-control"
-                            name="amount"
-                            id="amount"
-                            placeholder="amount"
-                            required
-                          />
-                          <label for="amount">Amount</label>
-                        </div>
-                      </div>
-                      <div class="bottom-area">
-                        <button class="btn btn-dark w-100">Proceed</button>
                       </div>
                     </div>
-                  </div>
-                </form>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <style>
-      @media only screen and (min-width: 768px) {
-        .main-text {
-          font-size: 1.2rem;
-          width: 100%;
-        }
-        .outer-main {
-          width: 100%;
-          position: relative;
-          left: 5rem;
-          top: 5rem;
-          width: 40rem;
-        }
-
-        .phone-mockup {
-          position: absolute;
-          left: 0px;
-          top: 0px;
-        }
-
-        .phone-mockup img {
-          width: 22rem;
-        }
-
-        .main {
-          position: absolute;
-          overflow-y: scroll;
-          background-color: #000000;
-          width: 20rem;
-          height: 40.5rem;
-          left: 1.1rem;
-          top: 3.1rem;
-          border-radius: 0px 0px 50px 43px;
-          margin-left: 54rem;
-        }
-
-        .main-body {
-          min-height: 34.5rem;
-        }
-
-        /* Scroll 2 */
-        .main::-webkit-scrollbar {
-          width: 5px;
-          height: 5px;
-        }
-        .main::-webkit-scrollbar-track {
-          background-color: rgba(255, 255, 255, 0);
-          border-radius: 10px;
-        }
-        .main::-webkit-scrollbar-thumb {
-          background-color: #cacaca;
-          border-radius: 10px;
-        }
-
-        .main-form {
-          height: 28rem;
-        }
-
-        .desktop-text {
-          position: absolute;
-          right: 0rem;
-        }
-      }
-    </style>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

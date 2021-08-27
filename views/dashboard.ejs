@@ -41,199 +41,248 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="outer-main">
-        <div class="desktop-text d-none d-md-block">
-          <div class="d-flex align-items-center">
-            <img
-              src="/assets/logo.svg"
-              alt="InvestoPay Logo"
-              class="brand-img"
-            />
-            <span class="ms-3 text-light mt-2"><h5>investoPay</h5></span>
+    <div class="container gx-0 gx-lg-4">
+      <div class="row gx-0 gx-lg-4">
+        <!-- This div is hidden in mobile and visible in desktop-->
+        <div class="col-12 col-lg-6 d-none d-lg-block">
+          <div class="desktop-text my-5 px-5">
+            <div class="brand mb-4">
+              <div class="d-flex align-items-center">
+                <img
+                  src="/assets/logo.svg"
+                  alt="InvestoPay Logo"
+                  class="brand-img"
+                />
+                <span class="ms-3 text-light mt-2"><h5>investoPay</h5></span>
+              </div>
+            </div>
+            <div class="main-text text-light">
+              <p>Hi 🖖</p>
+              <p>
+                This is a simulation of an investment app we designed for ZETA
+                HACKS 3.0 called investoPay
+              </p>
+              <p>
+                The goal of investoPay is to make investemnt easy and part of
+                daily life. We help users invest without putting in the work and
+                reap the benefits of the market.
+              </p>
+              <p>
+                We believe Zeta Fusion solved many of the problems that
+                investoPay would have faced as a fintech. We used Fusion to
+                provide each user with a wallet to transact and invest from.
+              </p>
+
+              <p class="form-text">
+                **Though we have provided a mobile simulator, we recommend using
+                this simulation on a mobile device for best experience.
+              </p>
+            </div>
           </div>
-          <p class="main-text text-light my-4">
-            investoPay was designed to make investing easy and part of daily
-            life <br /><br />
-
-            Invest without putting in the work and reap the benefits of the
-            market. <br />
-            <br />
-            investoPay took the inspiration from smallcase and can be integrated
-            with other UPI APPS or use the stand-alone product. <br />
-            <br />
-            To experience the Product , FOLLOW <br /><br />
-            Right Click > Inspect Elements > iPhone XII
-          </p>
         </div>
-        <div class="phone-mockup d-none d-md-block">
-          <img style="margin-left: 54rem" src="/assets/iphone12.png" alt="" />
-        </div>
-        <div class="main">
-          <div class="container-fluid gx-0">
-            <div class="navbar custom-navbar py-4">
-              <div class="container gx-4">
-                <div class="navbar-brand d-flex align-items-center">
-                  <img
-                    src="/assets/logo.svg"
-                    alt="InvestoPay Logo"
-                    class="brand-img"
-                  />
-                  <span class="ms-3">investoPay</span>
-                </div>
 
-                <button
-                  class="navbar-toggler d-flex align-items-center"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#mainNavbar"
-                  aria-controls="mainNavbar"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="navbar-toggler-icon"
-                    ><i class="bi bi-list"></i
-                  ></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                  <ul class="navbar-nav my-5">
-                    <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#"
-                        >Home</a
-                      >
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="/passbook/<%= user._id %>"
-                        >Passbook</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
+        <!-- This div is visible on both mobile and desktop and takes full screen in desktop -->
+        <div class="col-12 col-lg-6">
+          <!-- This is parent div for phone mockup and main app to position them properly -->
+          <div class="outer">
+            <!-- This is the phone mockup only visible in desktop -->
+            <div class="phone-mockup d-none d-md-block">
+              <img class="w-100" src="/assets/iphone12.png" alt="" />
             </div>
 
-            <div class="main-body py-5">
-              <div class="container gx-4">
-                <div class="btns text-center">
-                  <b>Hello, <%= user.name %></b> <br /><br />
-                  <div class="toggle-btn d-inline-flex mx-auto" id="toggleBtn1">
-                    <a class="custom-btn active" onclick="Page1()">Payments</a>
-                    <a class="custom-btn" onclick="Page2()">Investments</a>
+            <!-- this is the main app  -->
+            <div class="main-app">
+              <!-- App Navbar -->
+              <div class="navbar custom-navbar py-4">
+                <div class="container gx-3">
+                  <div class="navbar-brand d-flex align-items-center">
+                    <img
+                      src="/assets/logo.svg"
+                      alt="InvestoPay Logo"
+                      class="brand-img"
+                    />
+                    <span class="ms-3">investoPay</span>
                   </div>
-                </div>
 
-                <div class="pages mt-4">
-                  <div class="sheet sheet-1" id="sheet1">
-                    <h4 class="payments-head">Track Daily Market</h4>
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div id="tradingview_97083"></div>
-                      <script
-                        type="text/javascript"
-                        src="https://s3.tradingview.com/tv.js"
-                      ></script>
-                      <script type="text/javascript">
-                        new TradingView.widget({
-                          width: 300,
-                          height: 350,
-                          symbol: "FRED:SP500",
-                          interval: "W",
-                          timezone: "Etc/UTC",
-                          theme: "light",
-                          style: "2",
-                          locale: "en",
-                          toolbar_bg: "#f1f3f6",
-                          enable_publishing: false,
-                          hide_top_toolbar: true,
-                          hide_legend: true,
-                          save_image: false,
-                          container_id: "tradingview_97083",
-                        });
-                      </script>
-                    </div>
+                  <button
+                    class="navbar-toggler d-flex align-items-center"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                  >
+                    <span class="navbar-toggler-icon"
+                      ><i class="bi bi-list"></i
+                    ></span>
+                  </button>
 
-                    <!-- TradingView Widget END -->
-                  </div>
-                  <div class="sheet sheet-2 d-none" id="sheet2">
-                    <!-- Add Investments Section Here -->
-
-                    <h3 style="margin-bottom: 2rem">
-                      <span><i class="bi bi-currency-dollar"></i></span>Your
-                      Investments
-                    </h3>
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container">
-                      <div class="tradingview-widget-container__widget"></div>
-                      <div class="tradingview-widget-copyright">
-                        <a
-                          href="https://www.tradingview.com/markets/indices/"
-                          rel="noopener"
-                          target="_blank"
-                          ><span class="blue-text">Indices</span></a
+                  <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav my-4">
+                      <!-- To add nav link copy the below li tag and change the nav-link a tag -->
+                      <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/dashboard/<%= user._id %>"
+                          >Home</a
                         >
-                        by TradingView
-                      </div>
-                      <script
-                        type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
-                        async
-                      >
-                          {
-                          "colorTheme": "light",
-                          "dateRange": "12M",
-                          "showChart": true,
-                          "locale": "en",
-                          "largeChartUrl": "",
-                          "isTransparent": false,
-                          "showSymbolLogo": true,
-                          "showFloatingTooltip": false,
-                          "width": "300",
-                          "height": "500",
-                          "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-                          "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-                          "gridLineColor": "rgba(42, 46, 57, 0)",
-                          "scaleFontColor": "rgba(120, 123, 134, 1)",
-                          "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-                          "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-                          "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-                          "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-                          "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-                          "tabs": [
-                            {
-                              "title": "Indices",
-                              "symbols": [
-                                {
-                                  "s": "FOREXCOM:SPXUSD",
-                                  "d": "S&P 500"
-                                },
-                                {
-                                  "s": "FRED:NASDAQ100",
-                                  "d": "Nasdaq"
-                                },
-                                {
-                                  "s": "BSE:SENSEX",
-                                  "d": "sensex"
-                                }
-                              ],
-                              "originalTitle": "Indices"
-                            }
-                          ]
-                        }
-                      </script>
-                    </div>
-                    <!-- TradingView Widget END -->
+                      </li>
+                      <hr />
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          aria-current="page"
+                          href="/transfer-fund/<%= user._id %>"
+                          >Add money to wallet</a
+                        >
+                      </li>
+                      <hr />
+                      <li class="nav-item">
+                        <a
+                          class="nav-link active"
+                          aria-current="page"
+                          href="/passbook/<%= user._id %>"
+                          >Passbook</a
+                        >
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="pay-btn">
-              <button
-                class="btn btn-dark"
-                onclick="window.location.href='/pay/<%= user._id %>'"
-              >
-                <i class="bi bi-plus-lg me-1"></i> New Payment
-              </button>
+
+              <!-- Main App Body -->
+              <div class="main-body py-5">
+                <!-- We have to add gx to add padding from the side gx stands for gutter -->
+                <div class="container gx-3">
+                  <div class="btns text-center">
+                    <b>Hello, <%= user.name %></b> <br /><br />
+                    <div
+                      class="toggle-btn d-inline-flex mx-auto"
+                      id="toggleBtn1"
+                    >
+                      <a class="custom-btn active" onclick="Page1()" href="#"
+                        >Payments</a
+                      >
+                      <a class="custom-btn" onclick="Page2()" href="#"
+                        >Investments</a
+                      >
+                    </div>
+                  </div>
+
+                  <div class="pages mt-4">
+                    <div class="sheet sheet-1" id="sheet1">
+                      <h4 class="payments-head text-center my-4">
+                        Track Daily Market
+                      </h4>
+                      <!-- TradingView Widget BEGIN -->
+                      <div class="tradingview-widget-container">
+                        <div id="tradingview_97083"></div>
+                        <script
+                          type="text/javascript"
+                          src="https://s3.tradingview.com/tv.js"
+                        ></script>
+                        <script type="text/javascript">
+                          new TradingView.widget({
+                            width: 300,
+                            height: 350,
+                            symbol: "FRED:SP500",
+                            interval: "W",
+                            timezone: "Etc/UTC",
+                            theme: "light",
+                            style: "2",
+                            locale: "en",
+                            toolbar_bg: "#f1f3f6",
+                            enable_publishing: false,
+                            hide_top_toolbar: true,
+                            hide_legend: true,
+                            save_image: false,
+                            container_id: "tradingview_97083",
+                          });
+                        </script>
+                      </div>
+
+                      <!-- TradingView Widget END -->
+                    </div>
+                    <div class="sheet sheet-2 d-none" id="sheet2">
+                      <!-- Add Investments Section Here -->
+
+                      <h3 class="text-center my-4">
+                        <span><i class="bi bi-currency-dollar"></i></span>Your
+                        Investments
+                      </h3>
+                      <!-- TradingView Widget BEGIN -->
+                      <div class="tradingview-widget-container mx-auto">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <div class="tradingview-widget-copyright">
+                          <a
+                            href="https://www.tradingview.com/markets/indices/"
+                            rel="noopener"
+                            target="_blank"
+                            ><span class="blue-text">Indices</span></a
+                          >
+                          by TradingView
+                        </div>
+                        <script
+                          type="text/javascript"
+                          src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js"
+                          async
+                        >
+                            {
+                            "colorTheme": "light",
+                            "dateRange": "12M",
+                            "showChart": true,
+                            "locale": "en",
+                            "largeChartUrl": "",
+                            "isTransparent": false,
+                            "showSymbolLogo": true,
+                            "showFloatingTooltip": false,
+                            "width": "300",
+                            "height": "500",
+                            "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
+                            "plotLineColorFalling": "rgba(41, 98, 255, 1)",
+                            "gridLineColor": "rgba(42, 46, 57, 0)",
+                            "scaleFontColor": "rgba(120, 123, 134, 1)",
+                            "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+                            "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+                            "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+                            "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+                            "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+                            "tabs": [
+                              {
+                                "title": "Indices",
+                                "symbols": [
+                                  {
+                                    "s": "FOREXCOM:SPXUSD",
+                                    "d": "S&P 500"
+                                  },
+                                  {
+                                    "s": "FRED:NASDAQ100",
+                                    "d": "Nasdaq"
+                                  },
+                                  {
+                                    "s": "BSE:SENSEX",
+                                    "d": "sensex"
+                                  }
+                                ],
+                                "originalTitle": "Indices"
+                              }
+                            ]
+                          }
+                        </script>
+                      </div>
+                      <!-- TradingView Widget END -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pay-btn">
+                <button
+                  class="btn btn-dark"
+                  onclick="window.location.href='/pay/<%= user._id %>'"
+                >
+                  <i class="bi bi-plus-lg me-1"></i> New Payment
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -297,6 +346,12 @@
       .stock-nos {
         font-weight: 700;
       }
+
+      @media only screen and (min-width: 991px) {
+        .pay-btn {
+          position: absolute;
+        }
+      }
     </style>
 
     <script>
@@ -320,71 +375,6 @@
           .classList.remove("d-none");
       }
     </script>
-
-    <style>
-      @media only screen and (min-width: 768px) {
-        .main-text {
-          font-size: 1.2rem;
-          width: 100%;
-        }
-        .outer-main {
-          width: 100%;
-          position: relative;
-          left: 5rem;
-          top: 5rem;
-          width: 40rem;
-        }
-
-        .phone-mockup {
-          position: absolute;
-          left: 0px;
-          top: 0px;
-        }
-
-        .phone-mockup img {
-          width: 22rem;
-        }
-
-        .main {
-          position: absolute;
-          overflow-y: scroll;
-          background-color: #000000;
-          width: 20rem;
-          height: 40.5rem;
-          left: 1.1rem;
-          top: 3.1rem;
-          border-radius: 0px 0px 50px 43px;
-          margin-left: 54rem;
-        }
-
-        .main-body {
-          min-height: 34.5rem;
-        }
-
-        /* Scroll 2 */
-        .main::-webkit-scrollbar {
-          width: 5px;
-          height: 5px;
-        }
-        .main::-webkit-scrollbar-track {
-          background-color: rgba(255, 255, 255, 0);
-          border-radius: 10px;
-        }
-        .main::-webkit-scrollbar-thumb {
-          background-color: #cacaca;
-          border-radius: 10px;
-        }
-
-        .main-form {
-          height: 28rem;
-        }
-
-        .desktop-text {
-          position: absolute;
-          right: 0rem;
-        }
-      }
-    </style>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
