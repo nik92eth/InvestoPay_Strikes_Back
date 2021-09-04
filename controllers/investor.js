@@ -4,8 +4,8 @@ const User = require('../models/user');
 const qrCode = require('qrcode');
 const axios = require('axios');
 
-AUTH_TOKEN = "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiZ19kMG5leUptOF9TaklwdjZ5UnZTdyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoiNEVzU19ZRHNHRlJVSmxFWCJ9.h0UTA2-RwUDTA-4l6_dFRosujxbW3OHSsqDv25d4Bj0.NY3wKzbpS_5d9blLeJUqUg.2feoUpBPMZ3DNhA-uTCEFJL46CFrOGYg04IPje73Lb9omGBCczSyoQju_CFixAkM8ouwtkofGGcpB7qVWCKpNzNl1OkHGNDTkhhM_SEZdVVpKhgmIyDhyNCsE848NFg7saozd9IJFM97A17W3p0bRopAoZ68HLddYUiQ3VRkg6xdxVxdYVdz0gJqdEv2EGhkNJDSmcTD4lDYP38tX_wYQ6KVrtK1NalxabWUb8zZXBjsP_PcxF3h5M4ANRjIvc6TTtDo3mb4OoAwfo8TDIxHMQbx9almFpqTNm4CjpsFgGi4voSW48ZPpMAWttFigfLBTyapFY45i7zkutaLI-e9ziZGLgrcx2Bfq1yFM4eO4Ahf9iK411pvaP-abv84hEjY.NJCn_EsfEVA7j6qhz0m8qA"
-axios.defaults.headers.common['X-Zeta-AuthToken'] = AUTH_TOKEN;
+/*AUTH_TOKEN = "eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidGFnIjoiZ19kMG5leUptOF9TaklwdjZ5UnZTdyIsImFsZyI6IkExMjhHQ01LVyIsIml2IjoiNEVzU19ZRHNHRlJVSmxFWCJ9.h0UTA2-RwUDTA-4l6_dFRosujxbW3OHSsqDv25d4Bj0.NY3wKzbpS_5d9blLeJUqUg.2feoUpBPMZ3DNhA-uTCEFJL46CFrOGYg04IPje73Lb9omGBCczSyoQju_CFixAkM8ouwtkofGGcpB7qVWCKpNzNl1OkHGNDTkhhM_SEZdVVpKhgmIyDhyNCsE848NFg7saozd9IJFM97A17W3p0bRopAoZ68HLddYUiQ3VRkg6xdxVxdYVdz0gJqdEv2EGhkNJDSmcTD4lDYP38tX_wYQ6KVrtK1NalxabWUb8zZXBjsP_PcxF3h5M4ANRjIvc6TTtDo3mb4OoAwfo8TDIxHMQbx9almFpqTNm4CjpsFgGi4voSW48ZPpMAWttFigfLBTyapFY45i7zkutaLI-e9ziZGLgrcx2Bfq1yFM4eO4Ahf9iK411pvaP-abv84hEjY.NJCn_EsfEVA7j6qhz0m8qA"
+axios.defaults.headers.common['X-Zeta-AuthToken'] = AUTH_TOKEN;*/
 
 exports.home = function(req, res){
 	res.render("mobile_form");
@@ -38,94 +38,105 @@ exports.user_detail_form = function(req, res){
 	var username = req.body.name;
 	var date_of_birth = req.body.dob;
 	var pan = req.body.pan;
-	var mob = req.params.mobile;
-	User.findOne({ mobile: mob }, function(err, user){
-			if(user){
-				const date = new Date(date_of_birth);
-				user.name = username
-				user.dob = date_of_birth
-				user.pan = pan
-				const formData = {
-					  "ifiID": "140793",
-					  "formID": String(Math.floor(Math.random() * 100000)),
-					  "applicationType": "CREATE_ACCOUNT_HOLDER_01",
-					  "spoolID": "3deb5a70-311c-11ea-978f-2e728ce88125",
-					  "individualType": "REAL",
-					  "salutation": "",
-					  "firstName": username,
-					  "middleName": "",
-					  "lastName": "",
-					  "profilePicURL": "",
-					  "dob": {
-					      "year": date.getFullYear(),
-					      "month": date.getMonth(),
-					      "day": date.getDate()
-					  },
-					  "gender": "",
-					  "mothersMaidenName": "",
-					  "kycDetails": {
-					      "kycStatus": "MINIMAL",
-					      "kycStatusPostExpiry": "KYC_EXPIRED",
-					      "kycAttributes": {},
-					      "authData": {
-					        	"PAN": pan
-					      },
-					      "authType": "PAN"
-					  },
-					  "vectors": [
-					      {
-					          "type": "p",
-					          "value": String(user.mobile),
-					          "isVerified": true
-					      }
-					  ],
-					  "pops": [],
-					  "customFields": {
-					      "entity_id": "ABCD0001"
-					  }
+	User.findOne({ mobile: req.params.mobile }, function(err, user){
+		if(user){
+			const date = new Date(date_of_birth);
+			user.name = username
+			user.dob = date_of_birth
+			user.pan = pan
+			user.save(function(err){
+				if(err){
+					return res.status(500).send({
+				        msg: err.message
+				      });
 					}
-					axios.post('https://fusion.preprod.zeta.in/api/v1/ifi/140793/applications/newIndividual', formData)
-					  .then(function (response) {
-					  	if(response['status'] == 200){
-					  		if(response.data.individualID){
-					  			console.log(response.data);
-					  			user.account_holder_id = response.data.individualID;
-								const bundleData = {
-									"accountHolderID": response.data.individualID,
-									"name": "InvestopayFintechwalletbundle9adcf36",
-									"phoneNumber": String(user.mobile)
-								}
-							    axios.post('https://fusion.preprod.zeta.in/api/v1/ifi/140793/bundles/eeae85f2-b764-48cf-af9d-d202bd8f174a/issueBundle', bundleData)
-							  	.then(function(resp){
-							  		if(resp['status'] == 200){
-							  			console.log(resp.data);
-							  			user.accountId = resp.data.accounts[0].accountID;
-							  			user.save(function(err){
-							  				if(err){
-												return res.status(500).send({
-										        msg: err.message
-										      });
-											}
-											return res.redirect(`/transfer-fund/${user._id}`);
-							  			});
-							  		}
-							  	})
-							    .catch(function (error) {
-							    	console.log(error);
-								})
-					  		}else{
-					  			console.log("Already Exist");
-					  			return res.redirect(`/dashboard/${user._id}`);
-					  		}
-					  	}else{
-					  		console.log("Not 200");
-					  		return res.redirect(`/dashboard/${user._id}`);
-					  	}
-					})
-					  .catch(function (error) {
-					    console.log(error);
-					});
-			}
+					return res.redirect(`/transfer-fund/${user._id}`);
+	  			});
+			/*const formData = {
+				  "ifiID": "140793",
+				  "formID": String(Math.floor(Math.random() * 100000)),
+				  "applicationType": "CREATE_ACCOUNT_HOLDER_01",
+				  "spoolID": "3deb5a70-311c-11ea-978f-2e728ce88125",
+				  "individualType": "REAL",
+				  "salutation": "",
+				  "firstName": username,
+				  "middleName": "",
+				  "lastName": "",
+				  "profilePicURL": "",
+				  "dob": {
+				      "year": date.getFullYear(),
+				      "month": date.getMonth(),
+				      "day": date.getDate()
+				  },
+				  "gender": "",
+				  "mothersMaidenName": "",
+				  "kycDetails": {
+				      "kycStatus": "MINIMAL",
+				      "kycStatusPostExpiry": "KYC_EXPIRED",
+				      "kycAttributes": {},
+				      "authData": {
+				        	"PAN": pan
+				      },
+				      "authType": "PAN"
+				  },
+				  "vectors": [
+				      {
+				          "type": "p",
+				          "value": String(user.mobile),
+				          "isVerified": true
+				      }
+				  ],
+				  "pops": [],
+				  "customFields": {
+				      "entity_id": "ABCD0001"
+				  }
+				}
+				axios.post('https://fusion.preprod.zeta.in/api/v1/ifi/140793/applications/newIndividual', formData)
+				  .then(function (response) {
+				  	if(response['status'] == 200){
+				  		if(response.data.individualID){
+				  			console.log(response.data);
+				  			user.account_holder_id = response.data.individualID;
+							const bundleData = {
+								"accountHolderID": response.data.individualID,
+								"name": "InvestopayFintechwalletbundle9adcf36",
+								"phoneNumber": String(user.mobile)
+							}
+						    axios.post('https://fusion.preprod.zeta.in/api/v1/ifi/140793/bundles/eeae85f2-b764-48cf-af9d-d202bd8f174a/issueBundle', bundleData)
+						  	.then(function(resp){
+						  		if(resp['status'] == 200){
+						  			console.log(resp.data);
+						  			user.accountId = resp.data.accounts[0].accountID;
+						  			user.save(function(err){
+						  				if(err){
+											return res.status(500).send({
+									        msg: err.message
+									      });
+										}
+										return res.redirect(`/transfer-fund/${user._id}`);
+						  			});
+						  		}
+						  	})
+						    .catch(function (error) {
+						    	console.log(error);
+							})
+				  		}else{
+				  			console.log("Already Exist");
+				  			return res.redirect(`/dashboard/${user._id}`);
+				  		}
+				  	}else{
+				  		console.log("Not 200");
+				  		return res.redirect(`/dashboard/${user._id}`);
+				  	}
+				})
+				  .catch(function (error) {
+				    console.log(error);
+				});*/
+		}else{
+			return res.send({
+				msg: "User does not exist in the database!"
+			});
+		}
 	});
 }
 
@@ -202,7 +213,15 @@ exports.make_payment = function(req, res){
 				final_amount = Number(amnt) + Number(numbr);
 				invested_amount = Number(final_amount) - Number(amnt);
 				user.investment = user.investment + invested_amount;
-				const formData = {
+				user.save(function(err){
+					if(err){
+						return res.status(500).send({
+					   	    msg: err.message
+					    });
+					}
+					res.render("thankyou", {"final": amnt, "invest": invested_amount, "user": user});
+				})
+				/*const formData = {
 				  "requestID": randomString(),
 				  "amount": {
 				    "currency": "INR",
@@ -234,14 +253,22 @@ exports.make_payment = function(req, res){
 				})
 				.catch(function(error){
 					console.log(error);
-				})
+				})*/
 			}else if(req.body.hundred){
 				numb = amnt % 100;
 				numbr = 100 - Number(numb);
 				final_amount = Number(amnt) + Number(numbr);
 				invested_amount = Number(final_amount) - Number(amnt);
 				user.investment = user.investment + invested_amount;
-				const formData = {
+				user.save(function(err){
+					if(err){
+						return res.status(500).send({
+					   	    msg: err.message
+					    });
+					}
+					res.render("thankyou", {"final": amnt, "invest": invested_amount, "user": user});
+				})
+				/*const formData = {
 				  "requestID": randomString(),
 				  "amount": {
 				    "currency": "INR",
@@ -273,7 +300,7 @@ exports.make_payment = function(req, res){
 				})
 				.catch(function(error){
 					console.log(error);
-				})
+				})*/
 			}else{
 				final_amount = Number(amnt);
 				user.investment = user.investment + 0;;
@@ -394,7 +421,16 @@ exports.transfer_amount = function(req, res){
 				msg: "User does not exist in the database!"
 			});
 		}
-		const formData = {
+		user.balance +=amount;
+		user.save(function(err){
+			if(err){
+				return res.status(500).send({
+			   	    msg: err.message
+			    });
+			}
+			return res.redirect(`/dashboard/${user._id}`);
+		})
+		/*const formData = {
 		  "requestID": randomString(),
 		  "amount": {
 		    "currency": "INR",
@@ -426,6 +462,6 @@ exports.transfer_amount = function(req, res){
 		})
 		.catch(function(error){
 			console.log(error);
-		})
+		})*/
 	});
 }
