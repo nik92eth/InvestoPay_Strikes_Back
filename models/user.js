@@ -22,7 +22,7 @@ var UserSchema = new mongoose.Schema({
     type: Date,
     trim: true,
   },
-  city: {
+  pan: {
     type: String,
     trim: true,
     maxlength: 50,
@@ -36,6 +36,16 @@ var UserSchema = new mongoose.Schema({
     type: Number,
     maxlength: 80,
     trim: true,
+    default: 0,
+  },
+  account_holder_id: {
+    type: String,
+    maxlength: 100,
+    default: 0,
+  },
+  accountId: {
+    type: String,
+    maxlength: 100,
     default: 0,
   },
 });

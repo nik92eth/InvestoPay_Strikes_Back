@@ -1,132 +1,238 @@
 body {
-    background-color: #000000;
-    font-family: "Poppins", sans-serif;
+  background-color: #000000;
+  font-family: "Poppins", sans-serif;
 }
+
+/* This is the main app */
+.main-app {
+  /* This width and position property is important */
+  width: 100%;
+  position: relative;
+  background-color: #000000;
+  font-size: 18px;
+}
+
+/* Navbar for main app */
 
 .custom-navbar {
-    color: #ffffff;
+  color: #ffffff;
 }
 
-.custom-navbar .navbar-brand span{
-    font-weight: 600;
-    font-size: 1.275rem;
+.custom-navbar .navbar-brand span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.custom-navbar .navbar-toggler {
+  padding-right: 0rem;
 }
 
 .custom-navbar .navbar-toggler .navbar-toggler-icon {
-    font-size: 1.75rem;
-    color: #ffffff;
-    height: auto;
+  font-size: 1.75rem;
+  color: #ffffff;
+  height: auto;
 }
 
-.custom-navbar #mainNavbar li a{
-    color: #ffffff
+.custom-navbar #mainNavbar li a {
+  color: #ffffff;
 }
+
+.custom-navbar hr {
+  height: 1.2px;
+}
+
+/* main app body */
 
 .main-body {
-    border-radius: 1.5rem 1.5rem 0rem 0rem;
-    background-color: #ffffff;
-    min-height: calc(100vh - 90px);
+  border-radius: 1.5rem 1.5rem 0rem 0rem;
+  background-color: #ffffff;
+  min-height: calc(100vh - 90px);
 }
 
 .main-body .heading h1 {
-    font-size: 1.5rem;
-    color: #ABABAB;
-    font-weight: 700;
+  font-size: 2.6rem;
+  color: #ababab;
+  font-weight: 700;
 }
 
 .main-form {
-    height: 35rem;
+  height: 35rem;
 }
+
+.custom-form .payment-btn {
+  padding: 0.5rem 1rem;
+  margin-left: 4rem;
+  border-radius: 20px;
+}
+
+.main-body .heading-payments h1 {
+  font-size: 2.2rem;
+  color: #ababab;
+  font-weight: 600;
+  margin-top: 1.4rem;
+}
+
+.main-body .heading-payments-2 {
+  font-size: 1.7rem;
+  color: #ababab;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 991px) {
+  /* This is for only Desktop Optimisation */
+
+  /* To Optimise Desktop Text */
+  .desktop-text {
+    font-size: 1.35rem;
+  }
+
+  /* This is the outer parent div of phone mockup and main-app */
+  .outer {
+    position: relative;
+    width: 100%;
+  }
+
+  /* This is to position the phone mockup */
+  .outer .phone-mockup {
+    position: absolute;
+    width: 17rem;
+    margin: 2rem auto;
+    right: 0;
+    transform: translateX(-50%);
+  }
+
+  /* DON'T change the below values */
+  .outer .main-app {
+    position: absolute;
+    top: 4.2rem;
+    right: 1rem;
+    width: 32rem;
+    height: 61.63rem;
+    transform: scale(0.5);
+    transform-origin: top;
+    border-bottom-left-radius: 2.89rem;
+    border-bottom-right-radius: 2.89rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  /* Made the scroll bar display none else it was not looking good*/
+  .main-app::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-app .main-body {
+    min-height: 60.7rem;
+  }
+  .custom-form .form-floating label {
+    padding: 0.75rem 1rem;
+    height: auto;
+    font-size: 1.2rem;
+  }
+  
+  .main-body .form-text{
+    font-size: 1.1rem;
+  }
+  .btns.text-center{
+    font-size: 1.3rem;
+  }
+  
+  .top-area h5{
+    font-size: 2.1rem;
+  }
+  
+  .form-check label{
+    font-size: 2rem;
+  }
+  
+  .form-check input{
+    height: 20px;
+    width: 20px;
+  } 
+  .form-control{
+    padding: 1rem 0.8rem;
+    font-size: 1.2rem;
+  }
+  .continue-btn{
+    padding: 1rem 0.8rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* This is for forms */
 
 /* Floarting Form Labels */
 
 .custom-form .btn {
-    padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+}
+.input-group span,
+.input-group input{
+  font-size: 1.4rem;
 }
 
-.custom-form .form-floating, .custom-form .form-group {
-    margin: 1rem auto;
-  }
-  
-  .custom-form .form-group .form-label {
-      margin-bottom: 0.4rem;
-  }
-  
-  .custom-form .form-floating .form-control, .custom-form .form-group .form-control {
-      border: 1.2px solid #969696;
-      border-radius: 5px;
-      font-size: 0.9rem;
-      z-index: 1;
-      padding: 0.75rem 1rem 0.45rem 1rem;
-      height: 2.7rem;
-  }
-  
-  .custom-form .form-check-input:checked{
-    background-color: #5f2138;
-    border-color: #5f2138;
-    box-shadow: 0 0 0 0.2rem #66666640;
-  }
-  
-  .form-control:focus {
-      background-color: #ffffff00;
-      border: 1.5px solid #686868;
-      box-shadow: 0 0 0 0.2rem #66666640;
-      color: #242424;
-  }
-  
-  input:-webkit-autofill,
-  input:-webkit-autofill:hover,
-  input:-webkit-autofill:focus,
-  textarea:-webkit-autofill,
-  textarea:-webkit-autofill:hover,
-  textarea:-webkit-autofill:focus,
-  select:-webkit-autofill,
-  select:-webkit-autofill:hover,
-  select:-webkit-autofill:focus {
-      background-color: transparent;
-      -webkit-text-fill-color: #4d4d4d;
-      -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
-      transition: background-color 5000s ease-in-out 0s;
-  }
-  
-  .custom-form .form-floating .form-control:focus + label,
-  .custom-form .form-floating .form-control:not(:placeholder-shown) + label,
-  .custom-form .form-floating .form-select + label {
-        opacity: 1;
-        transform: scale(.72) translateY(-1.7rem) translateX(.6rem);
-        background: #ffffff;
-        color: #6d6d6d;
-      }
-  
-  .custom-form .form-floating .form-control:-webkit-autofill + label {
-    opacity: 1;
-    transform: scale(.72) translateY(-1.7rem) translateX(.6rem);
-    background: #ffffff;
-    color: #6d6d6d;
-  }
-  
-  .custom-form .form-floating label {
-    padding: 0.75rem 1rem;
-    height: auto;
-    font-size: 0.9rem;
-  }
-
-  .custom-form .payment-btn {
-    padding: 0.5rem 1rem;
-    margin-left: 4rem;
-    border-radius: 20px;
+.custom-form .form-floating,
+.custom-form .form-group {
+  margin: 1rem auto;
 }
 
-.main-body .heading-payments h1{
-    font-size: 2.2rem;
-    color: #ABABAB;
-    font-weight: 600;
-    margin-top: 1.4rem;
+.custom-form .form-group .form-label {
+  margin-bottom: 0.4rem;
 }
 
-.main-body .heading-payments-2 {
-    font-size: 1.7rem;
-    color: #ABABAB;
-    font-weight: 500;
-    margin-top: 2rem;
+.custom-form .form-floating .form-control,
+.custom-form .form-group .form-control {
+  border: 1.2px solid #969696;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  z-index: 1;
+  padding: 0.75rem 1rem 0rem 1rem;
+  height: 2.7rem;
 }
+
+.custom-form .form-check-input:checked {
+  background-color: #5f2138;
+  border-color: #5f2138;
+  box-shadow: 0 0 0 0.2rem #66666640;
+}
+
+.form-control:focus {
+  background-color: #ffffff00;
+  border: 1.5px solid #686868;
+  box-shadow: 0 0 0 0.2rem #66666640;
+  color: #242424;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent;
+  -webkit-text-fill-color: #4d4d4d;
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.custom-form .form-floating .form-control:focus + label,
+.custom-form .form-floating .form-control:not(:placeholder-shown) + label,
+.custom-form .form-floating .form-select + label {
+  opacity: 1;
+  transform: scale(0.72) translateY(-1.7rem) translateX(0.6rem);
+  background: #ffffff;
+  color: #6d6d6d;
+}
+
+.custom-form .form-floating .form-control:-webkit-autofill + label {
+  opacity: 1;
+  transform: scale(0.72) translateY(-1.7rem) translateX(0.6rem);
+  background: #ffffff;
+  color: #6d6d6d;
+}
+
