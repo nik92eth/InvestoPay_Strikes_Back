@@ -371,12 +371,9 @@ exports.thanks = function(req, res){
 		}
 		firstname = user.name.split(" ")[0];
 		dob = user.dob.toLocaleString().split(',')[0];
-
 		res.render("create_wallet", {"user": user, "firstname": firstname, "dob": dob});
 	});	
 }
-
-
 exports.create_wallet_account = function(req, res){
 	var user_id = req.params.userId
 	User.findOne({ _id: user_id}, function(err, user){
