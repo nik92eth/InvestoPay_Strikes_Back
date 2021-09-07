@@ -79,113 +79,6 @@
             </div>
           </div>
         </div>
-
-<<<<<<< HEAD
-        <div class="main-body py-5">
-          <div class="container gx-4">
-            <div class="btns text-center">
-              <b>Hello, <%= user.name %></b> <br><br>
-              <div class="toggle-btn d-inline-flex mx-auto" id="toggleBtn1">
-                <a class="custom-btn active" onclick="Page1()">Payments</a>
-                <a class="custom-btn" onclick="Page2()">Investments</a>
-              </div>
-            </div>
-
-            <div class="pages mt-4">
-              <div class="sheet sheet-1" id="sheet1">
-                  <h4 class="payments-head">Track Daily Market</h4>
-                  <!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div id="tradingview_97083"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-  <script type="text/javascript">
-  new TradingView.widget(
-  {
-  "width": 300,
-  "height": 350,
-  "symbol": "FRED:SP500",
-  "interval": "W",
-  "timezone": "Etc/UTC",
-  "theme": "light",
-  "style": "2",
-  "locale": "en",
-  "toolbar_bg": "#f1f3f6",
-  "enable_publishing": false,
-  "hide_top_toolbar": true,
-  "hide_legend": true,
-  "save_image": false,
-  "container_id": "tradingview_97083"
-}
-  );
-  </script>
-</div>
-
-<!-- TradingView Widget END -->
-              </div>                           
-                      <div class="sheet sheet-2 d-none" id="sheet2">
-                        <!-- Add Investments Section Here -->
-
-                                <h3 style="margin-bottom: 2rem;"><span><i class="bi bi-currency-dollar"></i></span>Your Investments</h3>
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/indices/" rel="noopener" target="_blank"><span class="blue-text">Indices</span></a> by TradingView</div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-  {
-  "colorTheme": "light",
-  "dateRange": "12M",
-  "showChart": true,
-  "locale": "en",
-  "largeChartUrl": "",
-  "isTransparent": false,
-  "showSymbolLogo": true,
-  "showFloatingTooltip": false,
-  "width": "300",
-  "height": "500",
-  "plotLineColorGrowing": "rgba(41, 98, 255, 1)",
-  "plotLineColorFalling": "rgba(41, 98, 255, 1)",
-  "gridLineColor": "rgba(42, 46, 57, 0)",
-  "scaleFontColor": "rgba(120, 123, 134, 1)",
-  "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-  "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-  "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-  "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-  "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-  "tabs": [
-    {
-      "title": "Indices",
-      "symbols": [
-        {
-          "s": "FOREXCOM:SPXUSD",
-          "d": "S&P 500"
-        },
-        {
-          "s": "FRED:NASDAQ100",
-          "d": "Nasdaq"
-        },
-        {
-          "s": "BSE:SENSEX",
-          "d": "sensex"
-        }
-      ],
-      "originalTitle": "Indices"
-    }
-  ]
-}
-  </script>
-</div>
-<!-- TradingView Widget END -->
-                      </div>
-
-            </div>
-          </div>
-        </div>
-          <div class="pay-btn">
-            <button class="btn btn-dark" onclick="window.location.href='/pay/<%= user._id %>'">
-              <i class="bi bi-plus-lg me-1"></i> New Payment
-            </button>
-          </div>
-=======
         <!-- This div is visible on both mobile and desktop and takes full screen in desktop -->
         <div class="col-12 col-lg-6">
           <!-- This is parent div for phone mockup and main app to position them properly -->
@@ -397,11 +290,7 @@
     
 
     <style>
-<<<<<<< HEAD
-      .tradingview-widget-container__widget{
-=======
       .tradingview-widget-container__widget {
->>>>>>> without-zeta
         z-index: -1;
       }
       .toggle-btn {
@@ -472,13 +361,9 @@
       function Page1() {
         document.querySelectorAll(".custom-btn")[1].classList.remove("active");
         document.querySelectorAll(".custom-btn")[0].classList.add("active");
-<<<<<<< HEAD
-        document.querySelectorAll(".pages .sheet")[0].classList.remove("d-none");
-=======
         document
           .querySelectorAll(".pages .sheet")[0]
           .classList.remove("d-none");
->>>>>>> without-zeta
         document.querySelectorAll(".pages .sheet")[1].classList.add("d-none");
       }
 
@@ -486,13 +371,9 @@
         document.querySelectorAll(".custom-btn")[1].classList.add("active");
         document.querySelectorAll(".custom-btn")[0].classList.remove("active");
         document.querySelectorAll(".pages .sheet")[0].classList.add("d-none");
-<<<<<<< HEAD
-        document.querySelectorAll(".pages .sheet")[1].classList.remove("d-none");
-=======
         document
           .querySelectorAll(".pages .sheet")[1]
           .classList.remove("d-none");
->>>>>>> without-zeta
       }
     </script>
 

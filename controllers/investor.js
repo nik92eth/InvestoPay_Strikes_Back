@@ -17,11 +17,7 @@ exports.home_form = function(req, res){
 		if(user) {
 			res.redirect(`/dashboard/${user._id}`);
 		}else{
-<<<<<<< HEAD
-		user = new User({mobile: user_mobile, UPI: user_mobile+"@zeta.com"});
-=======
 		user = new User({mobile: user_mobile, UPI: user_mobile+"@zeta"});
->>>>>>> without-zeta
 		user.save(function(err){
 			if(err){
 				return res.status(500).send({
@@ -375,12 +371,9 @@ exports.thanks = function(req, res){
 		}
 		firstname = user.name.split(" ")[0];
 		dob = user.dob.toLocaleString().split(',')[0];
-
 		res.render("create_wallet", {"user": user, "firstname": firstname, "dob": dob});
 	});	
 }
-
-
 exports.create_wallet_account = function(req, res){
 	var user_id = req.params.userId
 	User.findOne({ _id: user_id}, function(err, user){

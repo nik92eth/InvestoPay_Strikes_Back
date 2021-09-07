@@ -106,9 +106,9 @@ body {
   .outer .main-app {
     position: absolute;
     top: 4.2rem;
-    right: 1rem;
-    width: 32rem;
-    height: 61.63rem;
+    right: 1.8rem;
+    width: 30.5rem;
+    height: 62rem;
     transform: scale(0.5);
     transform-origin: top;
     border-bottom-left-radius: 2.89rem;
