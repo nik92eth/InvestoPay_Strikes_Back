@@ -50,7 +50,7 @@ body {
 }
 
 .main-body .heading h1 {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
   color: #ababab;
   font-weight: 700;
 }
@@ -84,7 +84,7 @@ body {
 
   /* To Optimise Desktop Text */
   .desktop-text {
-    font-size: 0.9rem;
+    font-size: 1.35rem;
   }
 
   /* This is the outer parent div of phone mockup and main-app */
@@ -96,7 +96,7 @@ body {
   /* This is to position the phone mockup */
   .outer .phone-mockup {
     position: absolute;
-    width: 15rem;
+    width: 17rem;
     margin: 2rem auto;
     right: 0;
     transform: translateX(-50%);
@@ -105,10 +105,10 @@ body {
   /* DON'T change the below values */
   .outer .main-app {
     position: absolute;
-    top: 4.35rem;
-    right: 1.64rem;
-    width: 26.73rem;
-    height: 54.57rem;
+    top: 4.2rem;
+    right: 1rem;
+    width: 32rem;
+    height: 61.63rem;
     transform: scale(0.5);
     transform-origin: top;
     border-bottom-left-radius: 2.89rem;
@@ -123,7 +123,40 @@ body {
   }
 
   .main-app .main-body {
-    min-height: 48.7rem;
+    min-height: 60.7rem;
+  }
+  .custom-form .form-floating label {
+    padding: 0.75rem 1rem;
+    height: auto;
+    font-size: 1.2rem;
+  }
+  
+  .main-body .form-text{
+    font-size: 1.1rem;
+  }
+  .btns.text-center{
+    font-size: 1.3rem;
+  }
+  
+  .top-area h5{
+    font-size: 2.1rem;
+  }
+  
+  .form-check label{
+    font-size: 2rem;
+  }
+  
+  .form-check input{
+    height: 20px;
+    width: 20px;
+  } 
+  .form-control{
+    padding: 1rem 0.8rem;
+    font-size: 1.2rem;
+  }
+  .continue-btn{
+    padding: 1rem 0.8rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -132,7 +165,12 @@ body {
 /* Floarting Form Labels */
 
 .custom-form .btn {
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+}
+.input-group span,
+.input-group input{
+  font-size: 1.4rem;
 }
 
 .custom-form .form-floating,
@@ -148,9 +186,9 @@ body {
 .custom-form .form-group .form-control {
   border: 1.2px solid #969696;
   border-radius: 5px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   z-index: 1;
-  padding: 0.75rem 1rem 0.45rem 1rem;
+  padding: 0.75rem 1rem 0rem 1rem;
   height: 2.7rem;
 }
 
@@ -198,8 +236,3 @@ select:-webkit-autofill:focus {
   color: #6d6d6d;
 }
 
-.custom-form .form-floating label {
-  padding: 0.75rem 1rem;
-  height: auto;
-  font-size: 0.9rem;
-}
