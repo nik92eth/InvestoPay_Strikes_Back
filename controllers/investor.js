@@ -17,11 +17,7 @@ exports.home_form = function(req, res){
 		if(user) {
 			res.redirect(`/dashboard/${user._id}`);
 		}else{
-<<<<<<< HEAD
-		user = new User({mobile: user_mobile, UPI: user_mobile+"@zeta.com"});
-=======
 		user = new User({mobile: user_mobile, UPI: user_mobile+"@zeta"});
->>>>>>> without-zeta
 		user.save(function(err){
 			if(err){
 				return res.status(500).send({
