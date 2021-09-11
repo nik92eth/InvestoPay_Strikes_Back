@@ -1,3 +1,3 @@
 # InvestoPay_Strikes_Back
 
-https://investo-pay.herokuapp.com/
+https://investopay-app.herokuapp.com/
